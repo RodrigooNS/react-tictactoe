@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import styles from "./Game.module.css"
 
 import GameOption from "../gameOption/GameOption"
+import GameInfo from "../gameInfo/GameInfo"
 import React from "react"
 
 const winnerTable = [
@@ -31,6 +32,11 @@ function Game () {
     })
   }
 
+  const handleReset = () => {
+    setGameState(Array(9).fill(0))
+    setWinner(0)
+  }
+
   // useEffect: primeiro parâmetro é uma função, segundo é um array
   // o array são as coisas que serão modificadas, se algo é modificado, a função é chamada
   // se o array tiver vazio, ele chama sempre que o DOM é "montado" (mas não o VDOM)
@@ -52,13 +58,11 @@ function Game () {
           )
         }
       </div>
-      <div className={styles.menu}>
-        <p>Jogador atual:</p>
-        <GameOption 
-          key={'player'}
-          status={currentPlayer}
-        />
-      </div>
+      <GameInfo
+        currentPlayer={currentPlayer}
+        winner={winner}
+        onReset={handleReset}
+      />
     </div>
   )
 }
