@@ -7,4 +7,11 @@
 .gameArea {
   display: flex;
   gap: 50px;
+  min-width: 170px;
+}
+
+@media screen and (max-width: 450px) {
+  .gameArea {
+    flex-direction: column;
+  }
 }

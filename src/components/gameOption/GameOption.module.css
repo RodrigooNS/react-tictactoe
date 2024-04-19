@@ -8,3 +8,11 @@
   align-items: center;
   cursor: pointer;
 }
+
+.winner {
+  border: 2px solid green;
+}
+
+.draw {
+  border: 2px solid yellow;
+}
