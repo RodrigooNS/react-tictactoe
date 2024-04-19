@@ -2,11 +2,11 @@ import styles from "./GameInfo.module.css"
 import GameOption from "../gameOption/GameOption"
 import Button from "../button/Button"
 
-function GameInfo ({ currentPlayer, winner, onReset }) {
+function GameInfo ({ currentPlayer, winner, onReset, isDraw }) {
   return (
     <div className={styles.menu}>
       {
-        winner === 0 &&
+        winner === 0 && isDraw === false &&
           <>
             <p>Jogador atual:</p>
             <GameOption 
@@ -25,9 +25,16 @@ function GameInfo ({ currentPlayer, winner, onReset }) {
             />
           </>
       }
+      {
+        isDraw === true &&
+          <>
+            <p>Empate!</p>
+            
+          </>
+      }
       <Button
         onClick={onReset}
-        disabled={winner === 0}
+        disabled={winner === 0 && isDraw === false}
       >
         Jogar novamente
       </Button>
