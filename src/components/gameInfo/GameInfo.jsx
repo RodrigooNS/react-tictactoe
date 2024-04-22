@@ -22,22 +22,29 @@ function GameInfo ({ currentPlayer, winner, onReset, isDraw }) {
             <GameOption 
               key={'winner'}
               status={winner}
+              isWinner={true}
             />
+            <Button
+              onClick={onReset}
+              disabled={winner === 0 && isDraw === false}
+            >
+              Jogar novamente
+            </Button>
           </>
       }
       {
         isDraw === true &&
           <>
             <p>Empate!</p>
-            
+            <Button
+              onClick={onReset}
+              disabled={winner === 0 && isDraw === false}
+            >
+              Jogar novamente
+            </Button>
           </>
       }
-      <Button
-        onClick={onReset}
-        disabled={winner === 0 && isDraw === false}
-      >
-        Jogar novamente
-      </Button>
+      
     </div>
   )
 }

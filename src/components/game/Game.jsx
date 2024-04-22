@@ -33,7 +33,6 @@ function Game () {
       if (sum === 3 || sum === -3) {
         setWinner(sum / 3)
         setWinnerLine(line)
-        console.log(line)
       }
     })
   }
