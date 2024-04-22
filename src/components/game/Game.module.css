@@ -8,6 +8,7 @@
   display: flex;
   gap: 50px;
   min-width: 170px;
+  padding: 20px;
 }
 
 @media screen and (max-width: 500px) {
