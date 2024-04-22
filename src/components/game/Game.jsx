@@ -18,6 +18,8 @@ function Game () {
   const [winner, setWinner] = useState(0)
   const [winnerLine, setWinnerLine] = useState([])
   const [draw, setDraw] = useState(false)
+  const [crossWins, setCrossWins] = useState(0)
+  const [circleWins, setCircleWins] = useState(0)
 
   const handleClick = (pos) => {
     if (gameState[pos] === 0 && winner === 0) {
@@ -66,7 +68,12 @@ function Game () {
   }, [gameState])
 
   useEffect(() => {
-    if (winner !== 0) setDraw(false)
+    if (winner !== 0) {
+      setDraw(false),
+      winner === 1 && setCircleWins(circleWins + 1),
+      winner === -1 && setCrossWins(crossWins + 1)
+    }
+
   }, [winner])
 
   return (
@@ -93,7 +100,7 @@ function Game () {
           isDraw={draw}
         />
       </div>
-      <Score />
+      <Score crossWins={crossWins} circleWins={circleWins} />
     </>
   )
 }
