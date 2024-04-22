@@ -8,7 +8,7 @@ function Score () {
       <h4>Placar:</h4>
       <div className={styles.scoreContent}>
         <div className={styles.scoreElements}>
-          <Icon iconName='X' />
+          <Icon iconName='x' />
           <p>0</p>
         </div>
         <div className={styles.scoreElements}>
